@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
+	<Extern href="stdidcmd.h" />
+	<Extern href="vsshlids.h" />
+
+	<Commands package="guidTinyOSPackage">
+
+		<Groups>			
+			<!-- This group contains all of the commands added to the project's context menu. -->
+			<Group guid="guidTinyOSPackageCmdSet" id="GcpProjectContextMenu" priority="0x600">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_CTXT_PROJNODE" />
+			</Group>
+		</Groups>
+		
+		<Buttons>
+			<Button guid="guidTinyOSPackageCmdSet" id="cmdidDeployProjectContextMenuCommand" priority="0x0300" type="Button">
+				<Parent guid="guidSHLMainMenu" id="IDG_VS_CTXT_PROJECT_BUILD" />
+				<!--<CommandFlag>DefaultDisabled</CommandFlag>-->
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Deploy</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+
+	</Commands>
+
+	<Symbols>
+		<!-- This is the package guid. -->
+		<GuidSymbol name="guidTinyOSPackage" value="{ae244da0-c255-45af-a526-0aad741a4439}" />
+
+		<!-- This is the guid used to group the menu commands together -->
+		<GuidSymbol name="guidTinyOSPackageCmdSet" value="{120c2691-7853-4dfa-acc7-5baa6e2dfac4}">
+			<IDSymbol name="GcpProjectContextMenu" value="0x1020" />
+			<IDSymbol name="cmdidDeployProjectContextMenuCommand" value="0x0100" />
+		</GuidSymbol>
+	</Symbols>
+	
+</CommandTable>
